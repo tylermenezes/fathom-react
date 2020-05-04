@@ -96,7 +96,7 @@ const sendPayloadFactory = (trackerUrl, siteId) => (eventName, data) => {
   // Send goal payload, this is in a beacon so it can continue if the page navigates
   if (eventName === 'goal') {
     postdata.gcode = data.gcode;
-    postdata.gval = data.gval || '';
+    postdata.gval = data.gval || '0';
     navigator.sendBeacon(`${trackerUrl}/${encodeData(postdata)}`);
     return;
   }
